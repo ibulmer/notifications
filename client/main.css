@@ -1,0 +1,222 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  background-color: white;
+}
+header {
+  background-color: #2d4d6d
+}
+nav {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.message {
+  font-size: 90%;
+  color: #97a8bc;
+}
+
+.alertt {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  color: red;
+  border-radius: 50%;
+  background-color: red;
+  bottom: 70%;
+  left: 30%;
+}
+
+.fa-bell-o {
+  cursor:pointer;
+}
+
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list-item {
+  position: relative;
+  color: white;
+  display: inline-block;
+  padding: 25px;
+}
+
+ul {
+  padding: 0px;
+}
+
+.dropdown-container {
+  position: absolute;
+  /*right: 0;*/
+  background-color: #eff0f0;
+  display: none;
+  left: 50%;
+  padding: 0px;
+  margin: 0px;
+  width: 30%;
+}
+
+.notification {
+  background-color: white;
+  left: 1.50%;
+  width: 97%;
+  position: relative;
+  /*padding: 10px;*/
+  margin-top: 2.0%;
+  margin-bottom: 2.0%;
+  overflow: none;
+}
+
+.ghost-left {
+  float: left;
+  color: #eff0f0;
+}
+
+.clear-all {
+  color: #1fb0f8;
+  float: right;
+  font-size: 70%;
+  cursor:pointer;
+}
+
+.notifications-title {
+  color: #2d4d6d;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  right: 15%;
+}
+
+.notification-header {
+  padding: 2%;
+}
+
+.notification li {
+  margin: 10px;
+  float: left;
+  overflow: auto;
+}
+
+.notifications {
+  padding: inherit;
+}
+
+
+.review-symbol {
+  position: absolute;
+  width: 10%;
+  height: 70%;
+  top: 15%;
+}
+
+.pain-symbol {
+  position: absolute;
+  width: 10%;
+  height: 70%;
+  top: 15%;
+}
+
+.trouble-symbol {
+  position: absolute;
+  width: 10%;
+  height: 70%;
+  top: 15%;
+}
+
+
+.review-text {
+  position: relative;
+  left: 15%;
+  width: 80%;
+}
+
+.pain-text {
+  position: relative;
+  left: 15%;
+  width: 80%;
+  /*background-color: orange;*/
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.trouble-text {
+  position: relative;
+  left: 15%;
+  width: 80%;
+  /*background-color: orange;*/
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.delete-notification {
+  position: absolute;
+  left: 95%;
+  bottom: 60%;
+  font-size: 70%;
+  cursor:pointer;
+}
+
+.icon-background-review{
+  color: #1fb0f8;
+}
+
+.icon-background-pain{
+  color: #fd571d;
+}
+
+.icon-background-trouble{
+  color: #ffb003;
+}
+
+.time {
+  color: #d0d2d2;
+  font-size: 70%;
+}
+
+.clinician-name {
+  margin-right: 10px;
+}
+
+.review .name {
+  color : #1fb0f8;
+}
+
+.pain > .name {
+  color: #fd571d;
+}
+
+.trouble > .name {
+  color : #ffb003;
+}
+
+.search {
+  background-color: #1d324a;
+}
+
+ /*utility classes*/
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+}
+.group:after {
+    clear: both;
+}
+
