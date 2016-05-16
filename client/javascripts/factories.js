@@ -14,6 +14,7 @@ angular.module('factories', [])
         url: '/notifications'
       }).then(function(data) {
         datum = data.data;
+        console.log('datum is ', data);
         for (var i=0; i<datum.length; i++) {
           //check if the type of session is assessment_needs_review
           if (datum[i].type === 'assessment_needs_review') {
@@ -81,7 +82,7 @@ angular.module('factories', [])
             results.push(notifications.trouble[patient_id][id])
           }
         }
-        //sort review timestamps, oldest first
+        //sort review timestamps, oldest first. Also add a message.
         for (var patient_id in notifications.assessments) {
            notifications.assessments[patient_id].timestamp.sort(function(a, b) {
             return moment(a).unix() - moment(b).unix();
@@ -95,6 +96,7 @@ angular.module('factories', [])
             })
           }
         }
+      console.log('results ', results);
       })
       return results
     }
@@ -131,12 +133,65 @@ angular.module('factories', [])
           }
         }
       });
+    };
+
+    function reducer () {
+      var result = [];
+      $http({
+        method: 'GET',
+        url: '/notifications',
+      }).then(function(data) {
+        var datum = data.data;
+        //storage will hold references to the index of the reduced array.
+        var storage = {};
+        datum.reduce(function(comp, item) {
+          if (item.type === 'assessment_needs_review' && storage[item.patient_id + item.type] !== undefined || item.type === 'event_pain' && storage[item.therapy_session_id + item.type] !== undefined) {
+            var index = storage[item.therapy_session_id + item.type] || storage[item.patient_id + item.type];
+            comp[index].ids.push(item.id);
+            comp[index].count++;
+            if (moment(item.timestamp).unix() < moment(comp[index]).unix() ) {
+              comp[index].time = item.timestamp;
+            }
+            if (item.pain_value >  comp[index].pain) {
+              console.log('item pain is ', item.pain);
+              comp[index].pain = item.pain_value;
+            }
+            if (item.type === 'assessment_needs_review') {
+              comp[index].message = "Has " + comp[index].count + " messages ready to review";
+            }
+            if (item.type === 'pain') {
+              comp[index.message] = "Reported pain " + comp[index].count + " with highest pain " + comp[index].pain;
+            }
+          } else {
+            comp.push({
+              name: item.patient_name,
+              message: item.message,
+              time: item.timestamp,
+              type: item.type,
+              count: 1,
+              ids: [item.id]
+            })
+            if (item.pain_value) {
+              comp[comp.length-1].pain = item.pain_value;
+            }
+            if (item.type === 'assessment_needs_review') {
+              storage[item.patient_id + item.type] = storage[item.patient_id + item.type] = comp.length -1;
+            }
+            if (item.type === 'event_pain') {
+              storage[item.therapy_session_id + item.type] = comp.length - 1;
+            }
+          }
+          return comp;
+        }, result);
+        console.log('result is ', result);
+      });
     }
 
     return {
       getNotifications: getNotifications,
       deleteAllNotifications: deleteAllNotifications,
       deleteSingleNotification: deleteSingleNotification,
+      reducer: reducer,
     }
   })
 

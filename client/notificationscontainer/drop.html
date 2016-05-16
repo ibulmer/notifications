@@ -1,0 +1,36 @@
+<div class = "notification-header" ng-if = "notifications.length>0">
+  <div class = "ghost-left">Clear All</div>
+  <div class = "clear-all" ng-click = "deleteAll()">Clear All</div>
+  <div class = "notifications-title">Notifications</div>
+</div>
+
+<div class = "notification" ng-repeat = "notification in notifications">
+
+    <div ng-if = "notification.type === 'assessment_needs_review' " class = "review review-symbol">
+      <span class="fa-stack fa-1x">
+        <i class="fa fa-circle fa-stack-2x icon-background-review"></i>
+        <a href = "/{{notification.name}}"><i class="fa fa-pencil-square-o fa-stack-1x"></i></a>
+      </span>
+    </div>
+
+    <div ng-if = "notification.type === 'event_pain' " class = "review pain-symbol">
+      <span class="fa-stack fa-1x">
+        <i class="fa fa-circle fa-stack-2x icon-background-pain"></i>
+        <a href = "/{{notification.name}}"><i class="fa fa-exclamation-triangle fa-stack-1x"  aria-hidden="true"></i></a>
+      </span>
+    </div>
+
+     <div ng-if = "notification.type === 'exercise_trouble' " class = "review trouble-symbol">
+      <span class="fa-stack fa-1x">
+        <i class="fa fa-circle fa-stack-2x icon-background-trouble"></i>
+        <a href = "/{{notification.name}}"><i class="fa fa-info fa-stack-1x"  aria-hidden="true"></i></a>
+      </span>
+    </div>
+
+    <div notification ng-if = "notification.type === 'assessment_needs_review' " class = "review review-text" ></div>
+    <div notification ng-if = "notification.type === 'event_pain' " class = "pain pain-text"></div>
+    <div notification ng-if = "notification.type === 'exercise_trouble' " class = "trouble trouble-text"></div>
+
+    <div ng-click = "deleteOne(notification.ids)" class = 'delete-notification'>X</div>
+</div>
+

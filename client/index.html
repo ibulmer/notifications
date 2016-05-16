@@ -34,8 +34,8 @@
         </ul>
       </nav>
     </header>
-
-    <div class ='dropdown-container' id = 'dropdown-container' dropdown></div>
+    <!-- <div class ='dropdown-container' id = 'dropdown-container' dropdown></div> -->
+    <div ng-controller = 'notificationController' class ='dropdown-container' id = 'dropdown-container' drop></div>
     <div ng-view class = "view"></div>
 
     <!-- Place the Scripts here -->
@@ -47,10 +47,9 @@
     <script src = "/javascripts/routing.js"></script>
     <script src = "/javascripts/directives.js"></script>
     <script src = "/javascripts/factories.js"></script>
-
+    <script src = "/notificationitems/notificationController.js"></script>
+    <script src = "/notificationitems/notificationFactory.js"></script>
+    <script src = "/notificationitems/notificationDirective.js"></script>
+    <script src = "/notificationscontainer/dropDirective.js"></script>
   </body>
-
-
-
-
 </html>

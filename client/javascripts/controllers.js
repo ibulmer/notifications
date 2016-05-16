@@ -1,8 +1,9 @@
-angular.module('routerApp', ['routerRoutes', 'directives', 'factories', 'angularMoment',])
+angular.module('routerApp', ['routerRoutes', 'directives', 'factories', 'angularMoment', 'apple', 'dropDirective'])
   .controller('mainController', function ($scope) {
 
 })
   .controller('notifications', function ($scope, needsReview) {
+    $scope.start = needsReview.reducer();
     //variable that stores formatted user data
     $scope.notifications = needsReview.getNotifications();
     //toggles dropdown menu on and off
@@ -22,9 +23,6 @@ angular.module('routerApp', ['routerRoutes', 'directives', 'factories', 'angular
     $scope.deleteOne = function(idArr) {
       needsReview.deleteSingleNotification(idArr, $scope.notifications);
     }
-  })
-  .controller('userController', function(){
-    //user controller logic would go here
   })
     .filter('mainFilter', function() {
       return function (item) {

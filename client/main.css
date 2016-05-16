@@ -67,12 +67,12 @@ ul {
 
 .notification {
   background-color: white;
-  left: 1.50%;
-  width: 97%;
+  left: 4%;
+  width: 88%;
   position: relative;
-  /*padding: 10px;*/
-  margin-top: 2.0%;
-  margin-bottom: 2.0%;
+  padding: 2%;
+  margin-top: 3.5%;
+  margin-bottom: 3.5%;
   overflow: none;
 }
 
@@ -143,7 +143,6 @@ ul {
   position: relative;
   left: 15%;
   width: 80%;
-  /*background-color: orange;*/
   overflow: hidden;
   white-space: nowrap;
 }
@@ -152,7 +151,6 @@ ul {
   position: relative;
   left: 15%;
   width: 80%;
-  /*background-color: orange;*/
   overflow: hidden;
   white-space: nowrap;
 }

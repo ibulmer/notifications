@@ -9,6 +9,8 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/../client'));
 app.use(express.static(__dirname + '/../client/views'));
+app.use(express.static(__dirname + '/../client/notificationitems'));
+app.use(express.static(__dirname + '/../client/notificationscontainer'));
 app.use(express.static(__dirname+'/../node_modules'));
 
 var server = app.listen(port);

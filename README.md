@@ -1,3 +1,24 @@
+Thanks you for the challenge! I found it very interesting.
+
+To view the app, make sure you have npm installed.
+==================================================
+From the root of the directory:
+  Run npm install.
+  Run node server/server.js
+Go to localhost:8080 in your browser to see it.
+
+About the app
+==================================================
+The basic overview is a client and a server.
+Clicking to delete a notification will cause it to stay deleted even on browser refresh.
+  To reset the app to the original state stop and restart the server.
+I changed the body background color to white in order to see container background more clearly.
+The app is deployed on https://notifications-reflexion.herokuapp.com/
+  In order to reset the deployed version. I would have to restart the server from my machine.
+Happy to answer any questions!!
+
+
+
 Reflexion Health Coding Challenge
 =================================
 Thank you for taking the time to complete this challenge. We realize this is
